@@ -32,6 +32,10 @@
     />
     <script src="//cdn.split.io/sdk/split-browser-0.5.0.full.min.js"></script>
     <script>
+      function logImpression(impressionData) {
+  // do something with the impression data.
+  console.log(JSON.stringify(impressionData))
+}
     var factory = splitio.SplitFactory({
       core: {
         authorizationKey: 'vvtehm93rm3i5nvivp4s5571v0o2rrc98u6d',
@@ -40,7 +44,10 @@
         // This could also be a cookie you generate for anonymous users
         key: 'key'
       },
-      debug: true
+      debug: true,
+      impressionListener: {
+      logImpression: logImpression
+  }
     });
     // And get the client instance you'll use
     var client = factory.client();
