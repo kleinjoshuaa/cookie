@@ -73,6 +73,21 @@
 analytics.track('Signed Up', {
   plan: 'Enterprise'
 });
+analytics.identify({
+  nickname: 'Amazing Grace',
+  favoriteCompiler: 'A-0',
+  industry: 'Computer Science'
+});
+analytics.page({
+  userId: "some_user_id",
+  category: "Merchant",
+  name: "Signup",
+})
+analytics.screen({
+  userId: "some_user_id",
+  category: "Merchant",
+  name: "Signup",
+})
 </script>
     
   {%- feed_meta -%}
