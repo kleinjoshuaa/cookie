@@ -51,7 +51,8 @@ amplitude.getInstance().logEvent(event, eventProperties);
   analytics.page();
   }}();
 </script>
-
+<!-- google optimize -->
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-NQQWXP2"></script>
 
   <!-- End Google Tag Manager -->
   <!-- This is MixPanel -->
@@ -129,7 +130,11 @@ analytics.page({
   category: "Merchant",
   name: "Signup",
 })
-
+// analytics.screen({
+//   userId: "some_user_id",
+//   category: "Merchant",
+//   name: "Signup",
+// })
 </script>
     
   {%- feed_meta -%}
