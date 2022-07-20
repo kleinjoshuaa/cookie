@@ -94,6 +94,10 @@ amplitude.getInstance().logEvent(event, eventProperties);
         // This could also be a cookie you generate for anonymous users
         key: 'someCoolUser'
       },
+      storage: {
+        type: 'LOCALSTORAGE',
+        prefix: 'PRIX_FIX'
+      },
       debug: true,
       impressionListener: {
       logImpression: logImpression
