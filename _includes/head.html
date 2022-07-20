@@ -80,13 +80,13 @@ amplitude.getInstance().logEvent(event, eventProperties);
       rel="stylesheet"
       href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
     />
-    <script src="//cdn.split.io/sdk/split-browser-0.6.0.full.min.js"></script>
+    <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
     <script>
       function logImpression(impressionData) {
   // do something with the impression data.
   console.log(JSON.stringify(impressionData))
 }
-    var factory = splitio.SplitFactory({
+    var factory = splitio({
       core: {
         authorizationKey: 'vvtehm93rm3i5nvivp4s5571v0o2rrc98u6d',
         // key represents your internal user id, or the account id that
