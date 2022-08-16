@@ -84,7 +84,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
     <script>
       function logImpression(impressionData) {
   // do something with the impression data.
-  console.log(JSON.stringify(impressionData))
+  //console.log(JSON.stringify(impressionData))
 }
     var factory = splitio({
       core: {
@@ -98,7 +98,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
     type: 'LOCALSTORAGE',
     prefix: 'prixfix'
   },
-      debug: true,
+      debug: false,
       impressionListener: {
       logImpression: logImpression
   },
