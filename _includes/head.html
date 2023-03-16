@@ -51,6 +51,15 @@ amplitude.getInstance().logEvent(event, eventProperties);
   analytics.page();
   }}();
 </script> -->
+<script src="https://cdn.jsdelivr.net/npm/@analytics-debugger/ga4mp@latest/dist/ga4mp.umd.min.js"/>
+<script>
+const ga4track = ga4mp(["G-YF1F8NQT2N"], {  
+  user_id: undefined,
+  non_personalized_ads: true,
+  debug: true
+});
+</script>
+
 <!-- google optimize -->
 <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NQQWXP2"></script>
 
