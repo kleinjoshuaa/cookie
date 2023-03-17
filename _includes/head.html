@@ -153,7 +153,7 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
 // })
 
 ga4track.setEventsParameter('trackedInSplit', ()=>{
-  return client.track('TRAFFIC_TYPE', 'EVENT_TYPE', 0, { 'prop':'val' });
+  return client.track('user', 'EVENT_TYPE', 0, { 'prop':'val' });
 })
 
 ga4track.trackEvent('click_outgoing', {
