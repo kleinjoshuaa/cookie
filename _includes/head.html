@@ -107,12 +107,15 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
     type: 'LOCALSTORAGE',
     prefix: 'prixfix'
   },
-      debug: false,
+      debug: true,
       impressionListener: {
       logImpression: logImpression
+  }, startup: {
+    eventsFirstPushWindow: 1
   },
   scheduler: {
-    impressionsRefreshRate: 1
+    impressionsRefreshRate: 1,
+    eventsPushrate: 1
   }
     });
     // And get the client instance you'll use
@@ -148,6 +151,19 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
 //   category: "Merchant",
 //   name: "Signup",
 // })
+
+ga4track.setEventsParameter('trackedInSplit', ()=>{
+  return client.track('TRAFFIC_TYPE', 'EVENT_TYPE', 0, { 'prop':'val' });
+})
+
+ga4track.trackEvent('click_outgoing', {
+  clicked_url: 'https://www.thyngster.com',
+  time: 12323
+})
+
+
+
+
 </script>
     
   {%- feed_meta -%}
