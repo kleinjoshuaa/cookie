@@ -91,36 +91,17 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
     />
     <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
     <script>
-      function logImpression(impressionData) {
-  // do something with the impression data.
-  //console.log(JSON.stringify(impressionData))
-}
-    var factory = splitio({
+    var factory = splitio.SplitFactory({
       core: {
         authorizationKey: 'vvtehm93rm3i5nvivp4s5571v0o2rrc98u6d',
         // key represents your internal user id, or the account id that
         // the user belongs to.
         // This could also be a cookie you generate for anonymous users
-        key: 'someCoolUser'
-      },
-      storage: {
-    type: 'LOCALSTORAGE',
-    prefix: 'prixfix'
-  },
-      debug: true,
-      impressionListener: {
-      logImpression: logImpression
-  }, startup: {
-    eventsFirstPushWindow: 1
-  },
-  scheduler: {
-    impressionsRefreshRate: 1,
-    eventsPushrate: 1
-  }
+        key: 'key'
+      }
     });
     // And get the client instance you'll use
     var client = factory.client();
-    client.on
     dataLayer.push({ split_client: client });
     client.on(client.Event.SDK_READY, function() {
   var treatment = client.getTreatment("Demo_TL");
