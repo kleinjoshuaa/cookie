@@ -120,7 +120,7 @@ function logImpression(impressionData) {
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   console.log(JSON.stringify(impressionData));
-gtag('event', 'split_impression', {
+gtag('event', 'click_outgoing', {
   'split_name': impressionData.feature,
   'split_treatment': impressionData.treatment,
   'split_label': impressionData.label,
@@ -173,14 +173,14 @@ gtag('event', 'split_impression', {
 //   name: "Signup",
 // })
 
-ga4track.setEventsParameter('trackedInSplit', ()=>{
-  return client.track('user', 'EVENT_TYPE', 0, { 'prop':'val' });
-})
+//ga4track.setEventsParameter('trackedInSplit', ()=>{
+ // return client.track('user', 'EVENT_TYPE', 0, { 'prop':'val' });
+//})
 
-ga4track.trackEvent('click_outgoing', {
-  clicked_url: 'https://www.thyngster.com',
-  time: 12323
-})
+//ga4track.trackEvent('click_outgoing', {
+//  clicked_url: 'https://www.thyngster.com',
+//  time: 12323
+//})
 
 
 
