@@ -51,6 +51,16 @@ amplitude.getInstance().logEvent(event, eventProperties);
   analytics.page();
   }}();
 </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YF1F8NQT2N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YF1F8NQT2N');
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@analytics-debugger/ga4mp@latest/dist/ga4mp.umd.min.js"></script>
 <script>
 const ga4track = ga4mp(["G-YF1F8NQT2N"], {  
@@ -91,9 +101,32 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
     />
     <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
     <script>
+
+
 function logImpression(impressionData) {
+  // 
+  // Impression Data has the following fields:
+  //  {
+  // "impression":{
+  //    "feature":"Demo_TL",
+  //    "keyName":"key",
+  //    "treatment":"off",
+  //    "time":1681158925738,
+  //    "label":"default rule",
+  //    "changeNumber":1665436973467
+  // },
+  // "ip":false,
+  // "hostname":false,
+  // "sdkLanguageVersion":"javascript-10.20.0"
+  //}
   console.log(JSON.stringify(impressionData));
-}
+gtag('event', 'split_impression', {
+  'split_name': impressionData.feature,
+  'split_treatment': impressionData.treatment,
+  'split_label': impressionData.label,
+  'split_changeno': impressionData.changeNumber,
+});
+
 
     var factory = splitio({
       core: {
