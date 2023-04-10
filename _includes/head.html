@@ -91,13 +91,20 @@ const ga4track = ga4mp(["G-YF1F8NQT2N"], {
     />
     <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
     <script>
-    var factory = splitio.SplitFactory({
+function logImpression(impressionData) {
+  console.log(JSON.stringify(impressionData));
+}
+
+    var factory = splitio({
       core: {
         authorizationKey: 'vvtehm93rm3i5nvivp4s5571v0o2rrc98u6d',
         // key represents your internal user id, or the account id that
         // the user belongs to.
         // This could also be a cookie you generate for anonymous users
         key: 'key'
+      },
+      impressionListener: {
+        logImpression: logImpression
       }
     });
     // And get the client instance you'll use
