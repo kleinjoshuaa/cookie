@@ -120,12 +120,11 @@ function logImpression(impressionData) {
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   console.log(JSON.stringify(impressionData));
-gtag('event', 'click_outgoing', {
-  'clicked_url': 'http://www.leon.com',
-//  'split_name': impressionData.feature,
-//  'split_treatment': impressionData.treatment,
-//  'split_label': impressionData.label,
-//  'split_changeno': impressionData.changeNumber,
+gtag('event', 'split_impression', {
+  'split_name': impressionData.impression.feature,
+  'split_treatment': impressionData.impression.treatment,
+  'split_label': impressionData.impression.label,
+  'split_changeno': impressionData.impression.changeNumber,
   'time': impressionData.impression.time
 });
 }
