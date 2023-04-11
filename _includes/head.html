@@ -103,7 +103,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
     <script>
 
 
-function logImpression(impressionData) {
+async function logImpression(impressionData) {
   // 
   // Impression Data has the following fields:
   //  {
@@ -119,7 +119,8 @@ function logImpression(impressionData) {
   // "hostname":false,
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
-  console.log(JSON.stringify(impressionData));
+  //console.log(JSON.stringify(impressionData));
+  console.log('InListener')
 //gtag('event', 'split_impression', {
 //  'split_name': impressionData.impression.feature,
 //  'split_treatment': impressionData.impression.treatment,
@@ -162,7 +163,7 @@ xhttp.send(JSON.stringify({
   }]
 }));
 console.log('Status: '+xhttp.status)
-
+console.log('exited listener')
 }
 
     var factory = splitio({
@@ -174,7 +175,7 @@ console.log('Status: '+xhttp.status)
         key: 'key'
       },
       impressionListener: {
-        logImpression: logImpression
+        logImpression: await logImpression
       }
     });
     // And get the client instance you'll use
