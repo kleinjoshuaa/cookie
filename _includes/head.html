@@ -122,10 +122,11 @@ function logImpression(impressionData) {
   console.log(JSON.stringify(impressionData));
 gtag('event', 'click_outgoing', {
   'clicked_url': 'http://www.leon.com',
-  'split_name': impressionData.feature,
-  'split_treatment': impressionData.treatment,
-  'split_label': impressionData.label,
-  'split_changeno': impressionData.changeNumber,
+//  'split_name': impressionData.feature,
+//  'split_treatment': impressionData.treatment,
+//  'split_label': impressionData.label,
+//  'split_changeno': impressionData.changeNumber,
+  'time': impressionData.time
 });
 }
 
