@@ -146,7 +146,22 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 }).then(() => {
   console.log("sent!")
 });
-
+var xhttp = new XMLHttpRequest();
+xhttp.open("POST", `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, false);
+xhttp.setRequestHeader("Content-type", "application/json");
+xhttp.send(JSON.stringify({
+  "client_id": impressionData.impression.keyName,
+  "events": [{
+      "name": "split_impression",
+      "params": {
+'split_name': impressionData.impression.feature,
+'split_treatment': impressionData.impression.treatment,
+'split_label': impressionData.impression.label,
+'split_changeno': impressionData.impression.changeNumber,
+      }
+  }]
+}));
+console.log('Status: '+xhttp.status)
 
 }
 
