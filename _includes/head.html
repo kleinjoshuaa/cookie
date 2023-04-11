@@ -129,7 +129,7 @@ function logImpression(impressionData) {
 //});
 const measurement_id = 'G-YF1F8NQT2N';
 const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
-fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
+ fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
   method: "POST",
   body: JSON.stringify({
       "client_id": impressionData.impression.keyName,
@@ -143,6 +143,8 @@ fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementI
           }
       }]
   })
+}).then(() => {
+  console.log("sent!")
 });
 
 
