@@ -120,13 +120,32 @@ function logImpression(impressionData) {
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   console.log(JSON.stringify(impressionData));
-gtag('event', 'split_impression', {
-  'split_name': impressionData.impression.feature,
-  'split_treatment': impressionData.impression.treatment,
-  'split_label': impressionData.impression.label,
-  'split_changeno': impressionData.impression.changeNumber,
-  'time': impressionData.impression.time
+//gtag('event', 'split_impression', {
+//  'split_name': impressionData.impression.feature,
+//  'split_treatment': impressionData.impression.treatment,
+//  'split_label': impressionData.impression.label,
+//  'split_changeno': impressionData.impression.changeNumber,
+//  'time': impressionData.impression.time
+//});
+const measurement_id = 'G-YF1F8NQT2N';
+const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
+fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
+  method: "POST",
+  body: JSON.stringify({
+      "client_id": impressionData.impression.keyName,
+      "events": [{
+          "name": "split_impression",
+          "params": {
+'split_name': impressionData.impression.feature,
+'split_treatment': impressionData.impression.treatment,
+'split_label': impressionData.impression.label,
+'split_changeno': impressionData.impression.changeNumber,
+          }
+      }]
+  })
 });
+
+
 }
 
     var factory = splitio({
