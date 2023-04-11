@@ -103,7 +103,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
     <script>
 
 
-async function logImpression(impressionData) {
+function logImpression(impressionData) {
   // 
   // Impression Data has the following fields:
   //  {
@@ -175,7 +175,7 @@ console.log('exited listener')
         key: 'key'
       },
       impressionListener: {
-        logImpression: await logImpression
+        logImpression: logImpression
       }
     });
     // And get the client instance you'll use
