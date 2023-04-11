@@ -128,9 +128,9 @@ function logImpression(impressionData) {
 //  'split_changeno': impressionData.impression.changeNumber,
 //  'time': impressionData.impression.time
 //});
-const measurement_id = 'G-YF1F8NQT2N';
-const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
-/* fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
+const measurementId = 'G-YF1F8NQT2N';
+const apiSecret = `ifH-KZFiTfOFQvZKBG2wEw`;
+ fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
   method: "POST",
   body: JSON.stringify({
       "client_id": impressionData.impression.keyName,
@@ -146,8 +146,8 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
   })
 }).then(() => {
   console.log("sent!")
-}); */
-var xhttp = new XMLHttpRequest();
+}); 
+/*var xhttp = new XMLHttpRequest();
 xhttp.open("POST", `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, false);
 xhttp.setRequestHeader("Content-type", "application/json");
 xhttp.send(JSON.stringify({
@@ -162,7 +162,7 @@ xhttp.send(JSON.stringify({
       }
   }]
 }));
-console.log('Status: '+xhttp.status)
+console.log('Status: '+xhttp.status) */
 console.log('exited listener')
 }
 
