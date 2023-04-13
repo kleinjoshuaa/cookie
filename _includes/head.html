@@ -120,17 +120,10 @@ function logImpression(impressionData) {
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   //console.log(JSON.stringify(impressionData));
-  console.log('InListener')
-//gtag('event', 'split_impression', {
-//  'split_name': impressionData.impression.feature,
-//  'split_treatment': impressionData.impression.treatment,
-//  'split_label': impressionData.impression.label,
-//  'split_changeno': impressionData.impression.changeNumber,
-//  'time': impressionData.impression.time
-//});
-const measurementId = 'G-YF1F8NQT2N';
-const apiSecret = `ifH-KZFiTfOFQvZKBG2wEw`;
- fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
+
+const measurement_id = 'G-YF1F8NQT2N';
+const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
+ fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
   method: "POST",
   body: JSON.stringify({
       "client_id": impressionData.impression.keyName,
@@ -144,6 +137,10 @@ const apiSecret = `ifH-KZFiTfOFQvZKBG2wEw`;
           }
       }]
   })
+}).then(() => {
+  console.log('sent to ga')
+}).catch((error) => {
+  console.log(error)
 })
 
 }
