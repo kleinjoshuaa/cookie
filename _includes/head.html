@@ -120,7 +120,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   //console.log(JSON.stringify(impressionData));
-function logImpression(impressionData) {
+function logImpression(impressionData, gtag) {
 
 //  gtag('event', 'split_impression', {
 //    'split_name': impressionData.impression.feature,
@@ -157,10 +157,11 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
  // var arr = JSON.parse(splitInfo);
 //  gtag('set', {splitInfo: JSON.stringify([...arr, impressionData.impression])});
 //}) 
+
 console.log('listener hit')
-gtag('config', 'G-YF1F8NQT2N', {[`${impressionData.impression.feature}_label`]: impressionData.impression.label});
-gtag('config', 'G-YF1F8NQT2N', {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber});
-gtag('config', 'G-YF1F8NQT2N', {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
+gtag('set', {[`${impressionData.impression.feature}_label`]: impressionData.impression.label});
+gtag('set',  {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber});
+gtag('set',  {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
 }
 
     var factory = splitio({
