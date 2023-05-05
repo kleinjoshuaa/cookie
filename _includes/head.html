@@ -155,7 +155,7 @@ gtag('get', 'G-YF1F8NQT2N', 'splitInfo', (splitInfo) => {
   // Do something with currency value you set earlier
   console.log(JSON.stringify(splitInfo))
   var arr = JSON.parse(splitInfo);
-  gtag('set', {splitInfo: JSON.stringify([...splitInfo, impressionData.impression])});
+  gtag('set', {splitInfo: JSON.stringify([...arr, impressionData.impression])});
 })
 
 
