@@ -158,7 +158,7 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 //  gtag('set', {splitInfo: JSON.stringify([...arr, impressionData.impression])});
 //}) 
 
-gtag('set', {[`${impressionData.impression.feature}`]: impressionData.impression.treatment});
+gtag('set', {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
 gtag('set', {[`${impressionData.impression.feature}_label`]: impressionData.impression.label});
 gtag('set', {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber});
 }
