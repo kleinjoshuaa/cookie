@@ -61,7 +61,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
 
   gtag('config', 'G-YF1F8NQT2N', { 'debug_mode':true });
 
-  gtag('set', {splitInfo: []});
+  //gtag('set', {splitInfo: []});
 </script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@analytics-debugger/ga4mp@latest/dist/ga4mp.umd.min.js"></script> -->
 <script>
@@ -154,7 +154,8 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 gtag('get', 'G-YF1F8NQT2N', 'splitInfo', (splitInfo) => {
   // Do something with currency value you set earlier
   console.log(JSON.stringify(splitInfo))
-  gtag('set', {splitInfo: [...splitInfo, impressionData.impression]});
+  var arr = JSON.parse(splitInfo);
+  gtag('set', {splitInfo: JSON.stringify([...splitInfo, impressionData.impression])});
 })
 
 
@@ -211,7 +212,8 @@ gtag('get', 'G-YF1F8NQT2N', 'splitInfo', (splitInfo) => {
 setInterval(function () {
   gtag('event', 'click_outgoing', {
     clicked_url: 'https://www.thyngster.com',
-    time: 12323
+    time: 12323,
+    splitInfo: gtag
   })
 
 
