@@ -60,6 +60,8 @@ amplitude.getInstance().logEvent(event, eventProperties);
   gtag('js', new Date());
 
   gtag('config', 'G-YF1F8NQT2N', { 'debug_mode':true });
+
+  gtag('set', {splitInfo: []});
 </script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@analytics-debugger/ga4mp@latest/dist/ga4mp.umd.min.js"></script> -->
 <script>
@@ -102,8 +104,6 @@ amplitude.getInstance().logEvent(event, eventProperties);
     <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
     <script>
 
-
-function logImpression(impressionData) {
   // 
   // Impression Data has the following fields:
   //  {
@@ -120,7 +120,16 @@ function logImpression(impressionData) {
   // "sdkLanguageVersion":"javascript-10.20.0"
   //}
   //console.log(JSON.stringify(impressionData));
+function logImpression(impressionData) {
 
+//  gtag('event', 'split_impression', {
+//    'split_name': impressionData.impression.feature,
+//    'split_treatment': impressionData.impression.treatment,
+//    'split_label': impressionData.impression.label,
+//    'split_changeno': impressionData.impression.changeNumber
+    // can add additional properties here as well
+
+/*
 const measurement_id = 'G-YF1F8NQT2N';
 const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
  fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
@@ -141,7 +150,12 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
   console.log('sent to ga')
 }).catch((error) => {
   console.log(error)
+})*/
+gtag('get', 'G-YF1F8NQT2N', 'splitInfo', (splitInfo) => {
+  // Do something with currency value you set earlier
+  gtag('set', {splitInfo: splitInfo.push(impressionData.impression)});
 })
+
 
 }
 
@@ -193,6 +207,16 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 //ga4track.setEventsParameter('trackedInSplit', ()=>{
  // return client.track('user', 'EVENT_TYPE', 0, { 'prop':'val' });
 //})
+setInterval(function () {
+  gtag('event', 'click_outgoing', {
+    clicked_url: 'https://www.thyngster.com',
+    time: 12323
+  })
+
+
+}, 1000)
+
+
 
 //ga4track.trackEvent('click_outgoing', {
 //  clicked_url: 'https://www.thyngster.com',
