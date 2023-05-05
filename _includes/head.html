@@ -153,6 +153,7 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 })*/
 gtag('get', 'G-YF1F8NQT2N', 'splitInfo', (splitInfo) => {
   // Do something with currency value you set earlier
+  console.log(JSON.stringify(splitInfo))
   gtag('set', {splitInfo: splitInfo.push(impressionData.impression)});
 })
 
