@@ -158,14 +158,15 @@ const api_secret = `ifH-KZFiTfOFQvZKBG2wEw`;
 //  gtag('set', {splitInfo: JSON.stringify([...arr, impressionData.impression])});
 //}) 
 
-console.log('listener hit - check')
+console.log('listener hit - check now')
 gtag('set', {
       [`${impressionData.impression.feature}_label`]: impressionData.impression.label,
       [`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber,
-      [`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber
+      [`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment
+      
 });
 //gtag('set',  {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber});
-//gtag('set',  {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber);
+//gtag('set',  {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
 }
 
     var factory = splitio({
