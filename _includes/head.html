@@ -61,6 +61,10 @@ amplitude.getInstance().logEvent(event, eventProperties);
 
   gtag('config', 'G-YF1F8NQT2N', { 'debug_mode':true });
 
+
+
+
+
 //gtag('set', {splitInfo: '[]'})
 </script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@analytics-debugger/ga4mp@latest/dist/ga4mp.umd.min.js"></script> -->
@@ -194,6 +198,20 @@ gtag('set', {
   } else {
       // insert your control treatment code here
   }
+  // Override gtag function to intercept events
+var originalGtag = window.gtag;
+window.gtag = function() {
+  var args = Array.prototype.slice.call(arguments);
+  originalGtag.apply(this, args);
+
+  // Intercept only event commands
+  if (args[0] === 'event') {
+    var eventName = args[1];
+    var eventParams = args[2];
+    client.track(eventName, null , eventParams);
+  }
+};
+
 });
 //analytics.track('Signed Up', {
 //  plan: 'Enterprise'
