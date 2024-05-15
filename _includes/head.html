@@ -209,7 +209,9 @@ window.gtag = function() {
   if (args[0] === 'event') {
     var eventName = args[1];
     var eventParams = args[2];
-    client.track(eventName, null , eventParams);
+    client.track('user', eventName, 0, eventParams)
+    client.track('anonymous', eventName, 0, eventParams)
+
   }
 };
 
