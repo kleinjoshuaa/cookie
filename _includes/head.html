@@ -172,14 +172,17 @@ gtag('set', {
 //gtag('set',  {[`${impressionData.impression.feature}_chNo`]: impressionData.impression.changeNumber});
 //gtag('set',  {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
 }
-
+gtag('get', 'G-YF1F8NQT2N', 'client_id', (clientId) => {
+  setupSplitSdk(clientId);
+});
+function setupSplitSdk(clientId) {
     var factory = splitio({
       core: {
         authorizationKey: 'vvtehm93rm3i5nvivp4s5571v0o2rrc98u6d',
         // key represents your internal user id, or the account id that
         // the user belongs to.
         // This could also be a cookie you generate for anonymous users
-        key: 'key'
+        key: clientId
       },
       impressionListener: {
         logImpression: logImpression
@@ -216,6 +219,7 @@ window.gtag = function() {
 };
 
 });
+}
 //analytics.track('Signed Up', {
 //  plan: 'Enterprise'
 //});
@@ -252,6 +256,9 @@ gtag('event', 'screen', {
 })
 
 gtag('event', 'click_outgoing')
+
+
+
 
 //ga4track.trackEvent('click_outgoing', {
 //  clicked_url: 'https://www.thyngster.com',
