@@ -173,6 +173,7 @@ gtag('set', {
 //gtag('set',  {[`${impressionData.impression.feature}_treatment`]: impressionData.impression.treatment});
 }
 gtag('get', 'G-YF1F8NQT2N', 'client_id', (clientId) => {
+  console.log('got client id', clientId)
   setupSplitSdk(clientId);
 });
 function setupSplitSdk(clientId) {
