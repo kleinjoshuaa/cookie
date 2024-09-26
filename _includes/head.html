@@ -188,7 +188,10 @@ function setupSplitSdk(clientId) {
       impressionListener: {
         logImpression: logImpression
       },
-      debug: true
+      debug: true,
+      storage: {
+        type: 'LOCALSTORAGE'
+      }
     });
     // And get the client instance you'll use
     var client = factory.client();
