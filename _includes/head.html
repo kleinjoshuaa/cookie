@@ -189,8 +189,8 @@ function setupSplitSdk(clientId) {
         logImpression: logImpression
       },
       debug: true,
-      startup: {
-        retriesOnFailureBeforeReady: 100
+      scheduler: {
+        featuresRefreshRate: 1,
       },
       storage: {
         type: 'LOCALSTORAGE'
