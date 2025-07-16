@@ -105,7 +105,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
       rel="stylesheet"
       href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
     />
-    <script src="//cdn.split.io/sdk/split-10.20.0.min.js"></script>
+    <script src="//cdn.split.io/sdk/split-11.4.0.min.js"></script>
     <script>
 
   // 
@@ -197,35 +197,36 @@ function setupSplitSdk(clientId) {
       }
     });
     // And get the client instance you'll use
-    var client = factory.client();
-    dataLayer.push({ split_client: client });
-    client.on(client.Event.SDK_READY, function() {
-  var treatment = client.getTreatment("Demo_TL");
-  if (treatment == "on") {
+  var client = factory.client();
+  dataLayer.push({ split_client: client });
+  client.on(client.Event.SDK_READY_FROM_CACHE, function () {
+    console.log('ready from cache');
+    var treatment = client.getTreatment("Demo_TL");
+    if (treatment == "on") {
       // insert code here to show on treatment
       console.log('on!!!')
-  } else if (treatment == "off") {
+    } else if (treatment == "off") {
       // insert code here to show off treatment
-  } else {
+    } else {
       // insert your control treatment code here
-  }
-  // Override gtag function to intercept events
-var originalGtag = window.gtag;
-window.gtag = function() {
-  var args = Array.prototype.slice.call(arguments);
-  originalGtag.apply(this, args);
+    }
+    // Override gtag function to intercept events
+    var originalGtag = window.gtag;
+    window.gtag = function () {
+      var args = Array.prototype.slice.call(arguments);
+      originalGtag.apply(this, args);
 
-  // Intercept only event commands
-  if (args[0] === 'event') {
-    var eventName = args[1];
-    var eventParams = args[2];
-    client.track('user', eventName, 0, eventParams)
-    client.track('anonymous', eventName, 0, eventParams)
+      // Intercept only event commands
+      if (args[0] === 'event') {
+        var eventName = args[1];
+        var eventParams = args[2];
+        client.track('user', eventName, 0, eventParams)
+        client.track('anonymous', eventName, 0, eventParams)
 
-  }
-};
+      }
+    };
 
-});
+  });
 return client;
 }
 //analytics.track('Signed Up', {
